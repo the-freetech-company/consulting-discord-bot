@@ -31,13 +31,14 @@ async def on_message(message):
         return
     await bot.process_commands(message)
 async def main():
-    token = os.getenv("bot_token")
+    token = os.getenv("DISCORD_SECRET")
     await bot.start(token)
 
 async def load():
     for file in os.listdir('./cogs'):
         print(file)
         if file.endswith('.py'):
+            print(f'Loading {file[:-3]} cog.')
             await bot.load_extension(f'cogs.{file[:-3]}')
             print(f'{file[:-3]} cog loaded.')
 
