@@ -18,16 +18,27 @@ bot = commands.Bot(command_prefix=os.getenv("BOT_PREFIX"), description='Consulti
 async def on_connect():
     print(f'Logged in as {bot.user.name} ({bot.user.id})')
     print('------')
+    await load()
     try:
         synced = await bot.tree.sync()
         print(f'Synced {len(synced)} commands.')
     except Exception as e:
         print(f'Failed to sync commands: {e}')
 
-
-#Login and connect
+@bot.event
+async def on_message(message):
+    if message.author.bot:
+        return
+    await bot.process_commands(message)
 async def main():
     token = os.getenv("bot_token")
     await bot.start(token)
+
+async def load():
+    for file in os.listdir('./cogs'):
+        print(file)
+        if file.endswith('.py'):
+            await bot.load_extension(f'cogs.{file[:-3]}')
+            print(f'{file[:-3]} cog loaded.')
 
 asyncio.run(main())
