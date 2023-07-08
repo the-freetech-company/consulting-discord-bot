@@ -1,11 +1,12 @@
 import discord
 from discord.ext import commands
-from dotenv import load_dotenv, find_dotenv
+# from dotenv import load_dotenv, find_dotenv
+
 import os
 import logging
 import asyncio
 
-load_dotenv(find_dotenv())
+# load_dotenv(find_dotenv())
 logger = logging.getLogger('discord')
 logger.setLevel(logging.ERROR)
 handler = logging.FileHandler(filename='../discord.log', encoding='utf-8', mode='w')
