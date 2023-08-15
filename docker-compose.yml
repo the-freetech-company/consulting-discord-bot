@@ -11,7 +11,7 @@ services:
     volumes:
       - mongo_data:/data
   lavalink:
-    image: fredboat/lavalink:8ebaba1
+    image: fredboat/lavalink
     volumes:
       - ./src/application.yml:/opt/Lavalink/application.yml
     expose: ["2333"]
@@ -23,7 +23,7 @@ services:
     volumes:
       - ./src:/home/src
     environment:
-      DISCORD_SECRET: MTEyNTgzMjU3NDU2OTI5OTk3OA.GdOXKO.xBs-LeOf8-VRfp2TNQeOq_Tgs_da5Fx3pGqUqg
+      DISCORD_SECRET: secret
       BOT_PREFIX: !
       MONGO_PASSWORD: password
       MONGO_USER: smoot-admin
