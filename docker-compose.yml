@@ -23,19 +23,33 @@ services:
     volumes:
       - ./src:/home/src
     environment:
-      DISCORD_SECRET: secret
-      BOT_PREFIX: !
+      DISCORD_SECRET: "MTEyNTgzMjU3NDU2OTI5OTk3OA.G8jyQb.p_t32uFJkXIdWd0WMd6GkY7AfvTDYPgy35Hup4"
+      BOT_PREFIX: "!"
       MONGO_PASSWORD: password
       MONGO_USER: smoot-admin
     command: >
       bash -c '
+        set -e; \
         apt update -y && \
-        apt install -y vim && \
+        apt install -y vim wget curl python3 && \
+        wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip && \
+        unzip -o ngrok-stable-linux-amd64.zip && \
+        ./ngrok http 5000 > /home/src/ngrok.log 2>&1 & \
+        sleep 20 && \
+        ps aux | grep ngrok && \
+        curl --silent http://localhost:4040/api/tunnels || echo "Failed to connect to ngrok" && \
         python3 -m venv /home/src/venv/ && \
         python3 -m pip install --upgrade pip && \
         source /home/src/venv/bin/activate && \
         pip install -r /home/src/requirements.txt && \
         python -u /home/src/main.py
-        '
+      '
+
+
+
+
+
+
+
 volumes:
   mongo_data:
