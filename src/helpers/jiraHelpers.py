@@ -1,6 +1,6 @@
 from jira import JIRA
 
-jira = JIRA(server='https://the-freetech-company.atlassian.net', basic_auth=('chase@freetech.co', 'ATATT3xFfGF0nkLWP6HWa7Kk7sT5MwGmSHgIcijZnAF7prSTHH-FgziGF_WNeBecuHqGAELGQRwpTFLFU3q-hhxgKb-QfdwhjwzNhq0EprkUEXHiti4NhrWCTcWVs8sCY8cW46PwqZLwbVMvfiU04YmlR9uzk45mqdHuImzpKtI5EWGseVmrjDI=E2F9EEE2'))
+jira = JIRA(server='https://the-freetech-company.atlassian.net', basic_auth=('chase@freetech.co', 'ATATT3xFfGF0P6pkfbYIxrxTpR0d4kt-XGboqRjsCDprG9ccanO5B4u0UklRxQ5b3IG-x1BqH0BRTwMQ2KI8TNkzZ6qnc5IYJCGO6IJQ2G56oGti5MTcdAM6PuROVIPQhWWrhWpR1zBfEMZmKF6X7eJjcosZkXeGTmN9fSdEv4gqButMjEk6nyY=EF964A05'))
 
 
 def updateIssueStatus(issueKey, status):

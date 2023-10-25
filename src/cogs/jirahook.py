@@ -73,7 +73,7 @@ class JiraHook(commands.Cog):
                         if item['field'] == "status":
                             status_changed_to = item['toString']
 
-                channel = self.bot.get_channel(1163512379972264090)  # Replace with your channel ID
+                channel = self.bot.get_channel(1163861707068805181)  # Replace with your channel ID
 
                 if channel:
                     color = 0xFFFFFF  # Default color

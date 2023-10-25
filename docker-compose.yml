@@ -23,7 +23,7 @@ services:
     volumes:
       - ./src:/home/src
     environment:
-      DISCORD_SECRET: "MTEyNTgzMjU3NDU2OTI5OTk3OA.G8jyQb.p_t32uFJkXIdWd0WMd6GkY7AfvTDYPgy35Hup4"
+      DISCORD_SECRET: "MTEyNTgzMjU3NDU2OTI5OTk3OA.Gejh0-.jAvykyPHp_U-dpy4lHw9fIC_xecPkMXsX2H8u8"
       BOT_PREFIX: "!"
       MONGO_PASSWORD: password
       MONGO_USER: smoot-admin
